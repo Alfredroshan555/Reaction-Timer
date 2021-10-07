@@ -1,16 +1,30 @@
 <template>
   <div>
-    <h1>hello</h1>
-    <h1>My name is alfred</h1>
-    <h3>hjksdfa</h3>
-    <h1>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, perspiciatis. Quasi itaque exercitationem id nulla enim quibusdam qui nam. Ducimus sunt maiores iste ipsum cupiditate, soluta quisquam porro labore in!</h1>
+    <h1>Reaction Timer Game</h1>
+    <button @click="start" :disabled="isPlaying">Play</button>
+    <Block v-if="isPlaying" :delay="delay" />
   </div>
 </template>
 
 <script>
+import Block from './components/Block.vue'
 
   export default{
-    component: { }
+    name: 'App',
+    components: { Block },
+    data() {
+      return {
+        isPlaying: false,
+        delay: null
+      }
+    },
+    methods: {
+      start(){
+        this.delay = 2000 + Math.random() * 5000
+        this.isPlaying = true
+        console.log(this.delay)
+      }
+    },
   }
   
   
