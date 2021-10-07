@@ -1,5 +1,8 @@
+
 <template>
+
   <div class="container">
+    
     <h1>Reaction Timer Game</h1>
     <button @click="start" :disabled="isPlaying">Play</button>
     <Block v-if="isPlaying" :delay="delay" @end="endGame" />
@@ -10,11 +13,12 @@
 
 <script>
 import Block from './components/Block.vue'
+import Navbar from './components/Navbar.vue'
 import Results from './components/Result.vue'
 
   export default{
     name: 'App',
-    components: { Block,Results },
+    components: { Block,Results,Navbar, Navbar },
     data() {
       return {
         isPlaying: false,
@@ -72,7 +76,7 @@ background: linear-gradient(to right, #004e92, #000428); /* W3C, IE 10+/ Edge, F
 }
 .container{
   border: 3px solid rgb(255, 255, 255);
-
+  border-radius: 15px;
   
   text-align: center;
   align-content: center;
